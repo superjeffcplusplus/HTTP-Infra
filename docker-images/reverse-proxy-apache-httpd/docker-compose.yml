@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  reverse_proxy:
+    build: .
+    container_name: reverse_proxy
+    ports:
+      - "8080:80"
+  web_static:
+    build: ../apache-php-image/
+    container_name: web_static
+    depends_on:
+      - reverse_proxy
+  web_dynamic:
+    build: ../nodejs-image/
+    container_name: web_dynamic
+    depends_on:
+      - reverse_proxy
