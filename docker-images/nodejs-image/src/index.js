@@ -1,21 +1,35 @@
-var Chance = require("chance");
-var chance = new Chance();
+const Chance = require("chance");
+const chance = new Chance();
 
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
+
+
+const today = new Date();
+
+let lastRequest = null;
+let bowlsNb;
 
 app.get("/", function(req, res){
-    var html = "<html><h2>";
-    html += "The food truck is comming...<br>";
-    html += "You ordred : "
-    html += iceCreamTruck();
-    html += "ice cream<br>";
-    html += "</h2></html>";
-    res.send(html);
+    let returnedObj = {};
+    returnedObj.date = today.getDate() + "." + (today.getMonth()+1) + "." + today.getFullYear();
+
+    bowlsNb = Math.ceil(Math.random() * 3);
+
+    for (let i = 0; i < bowlsNb; ++i){
+        returnedObj["ice cream bowl " + (i+1)] = iceCreamTruck();
+    }
+    
+
+    if (lastRequest !== null){
+        returnedObj["time after previous request"] = ((Date.now() - lastRequest)/1000) + " seconds";
+    }
+    res.send(returnedObj);
+    lastRequest = Date.now();
 })
 
 app.listen(3000, function() {
-    console.log("Waiting for clients on port ");
+    console.log("Waiting for clients on port 3000 ");
 })
 
 function iceCreamTruck(){
