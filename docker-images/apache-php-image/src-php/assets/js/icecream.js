@@ -1,4 +1,7 @@
-$(
+/**
+ * Script to load dynamically best choice of ice cream cup
+ */
+ $(
     function () {
         console.log("loading ice creams");
 
