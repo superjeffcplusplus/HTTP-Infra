@@ -1,9 +1,19 @@
 version: '3.8'
 services:
-  web_php_static:
-    build: ./docker-images/apache-php-image/
-    container_name: web_php_static
+  reverse_proxy:
+    build: ./docker-images/reverse-proxy-apache-httpd
+    container_name: reverse_proxy
     ports:
       - "8080:80"
+  web_static:
+    build: ./docker-images/apache-php-image/
+    container_name: web_static
+    depends_on:
+      - reverse_proxy
     volumes:
       - ./docker-images/apache-php-image/src-php/:/var/www/html/
+  web_dynamic:
+    build: ./docker-images/nodejs-image/
+    container_name: web_dynamic
+    depends_on:
+      - reverse_proxy
