@@ -189,5 +189,8 @@ function toggleFunction() {
 }
 </script>
 
+<!-- JQuers for ajax queries -->
+<script src="assets/js/jquery.js"></script>
+
 </body>
 </html>
