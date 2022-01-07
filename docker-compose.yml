@@ -17,3 +17,5 @@ services:
     container_name: web_dynamic
     depends_on:
       - reverse_proxy
+    volumes:
+      - ./docker-images/nodejs-image/src/:/opt/app
