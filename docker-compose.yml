@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  web_php_static:
+    build: ./docker-images/apache-php-image/
+    container_name: web_php_static
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker-images/apache-php-image/src-php/:/var/www/html/
