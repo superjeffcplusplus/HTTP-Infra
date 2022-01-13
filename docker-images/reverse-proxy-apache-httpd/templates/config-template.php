@@ -14,5 +14,4 @@ $web_dynamic = getenv('WEB_DYNAMIC_HOSTNAME');
 
         ProxyPass "/" "http://<?= $web_static ?>:80/"
         ProxyPassReverse "/" "http://<?= $web_static ?>:80/"
-
 </VirtualHost>
