@@ -16,8 +16,10 @@ app.get("/", function(req, res){
 
     bowlsNb = Math.ceil(Math.random() * 3);
 
+    returnedObj.iceCreamBowls = [];
+
     for (let i = 0; i < bowlsNb; ++i){
-        returnedObj["ice cream bowl " + (i+1)] = iceCreamTruck();
+        returnedObj.iceCreamBowls.push(iceCreamTruck());
     }
     
 
