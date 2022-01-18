@@ -1,4 +1,9 @@
 <?php
+/**
+ * Template pour la configuration reverse proxy
+ */
+
+// Récupération des variables d'environnement
 $web_static = getenv('WEB_STATIC_HOSTNAME');
 $web_dynamic = getenv('WEB_DYNAMIC_HOSTNAME');
 ?>
