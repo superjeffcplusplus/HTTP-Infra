@@ -1,13 +1,16 @@
 #!/bin/bash
 # arrête le container 
-docker container kill api-web-static-dev;
+echo "Killing container... "
+docker container kill api-web-static-dev 2>/dev/null;
 # supprime le container
+echo "Removing container... "
 docker container rm api-web-static-dev 2>/dev/null;
-docker build -t api/apache-static-dev . ;
+# créée l'image
+echo "Building image... "
+docker build -t api/apache-static . ;
+# lance un container
 docker run -d \
-        # lie le port 8080 de l'hôte au port 80 du container
-        -p 80:8080 \ 
+        -p 8080:80 \
         --name api-web-static-dev \
-        # Volume
         --mount type=bind,src=$(pwd)/src-php,target=/var/www/html/ \
-        api/apache-static-dev ;
+        api/apache-static;
