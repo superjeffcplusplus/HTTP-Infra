@@ -23,13 +23,13 @@ La branche est structuée ainsi: <br>
 - `build-run-dev.sh` : script bash permettant gérer le container docker en mode "développement"<br>
 
     Les deux fichiers de "build" gardent la même logique qu'à l'[étape 1](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-apache-static/README.md).
-    
     <br><br>
 
 ### Choix
 Nous avons choisi le framework "Express" pour créer notre application web car il permet de faire très rapidement et facilement des sites minimalistes.
 <br>
 Il nous a permis grâce aux fonctions `listen()` et `get()` de créer une application web sans avoir à gérer nous-même des buffers, les clients etc.
+<br><br>
 
 ### Procédure
 1. Lancer le container docker :
