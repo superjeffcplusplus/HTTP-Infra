@@ -6,12 +6,12 @@ services:
     ports:
       - "8080:80"
   web_static:
-    build: ./docker-images/apache-php-image/
+    build: ./docker-images/apache-php-jquery-image/
     container_name: web_static
     depends_on:
       - reverse_proxy
     volumes:
-      - ./docker-images/apache-php-image/src-php/:/var/www/html/
+      - ./docker-images/apache-php-jquery-image/src-php/:/var/www/html/
   web_dynamic:
     build: ./docker-images/nodejs-image/
     container_name: web_dynamic
