@@ -19,8 +19,11 @@ La branche est structuée ainsi: <br>
     - `package.json` : les information concernant le programme node.js (nom du programme, auteurs, version, descriptions, dépendances...) 
     <br><br>
 
-- `build-run.sh` : script bash permettant gérer le container docker<br>
-    (Le fichier garde la même logique qu'à l'[étape 1](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-apache-static/README.md))
+- `build-run-prod.sh` : script bash permettant gérer le container docker en mode "production"<br>
+- `build-run-dev.sh` : script bash permettant gérer le container docker en mode "développement"<br>
+
+    Les deux fichiers de "build" gardent la même logique qu'à l'[étape 1](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-apache-static/README.md).
+    
     <br><br>
 
 ### Choix
@@ -39,5 +42,5 @@ Il nous a permis grâce aux fonctions `listen()` et `get()` de créer une applic
     <br><br>
 3. À chaque chargement de page, une nouvelle glace est crée et est afficher dans l'interpréteur JSON du navigateur
 
-    Exemple de résultat attendu:
+    Exemple de résultat attendu:<br>
     ![result](/images/result.jpg)
