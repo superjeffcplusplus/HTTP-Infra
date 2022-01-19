@@ -95,7 +95,7 @@ $hostname = getenv('HOSTNAME');
     if (autoreload) {
       window.location = "/"
     }
-  }, 3000);
+  }, 2000);
 
 </script>
 
