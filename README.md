@@ -19,11 +19,12 @@ Nous avons ajouté cette ligne uniquement pour le service web_static.
 L'application web est la même que l'étape précédente.
 ## Procédure de test
 Pour que tout fonctionne correctement, il est impératif de se déplacer dans le dossier `docker-images/`.
-1. Lancer la commande :  
+
+1. Effacer les cookies pour le site `http://demo.api.ch/`. Lancer la commande :  
 `docker-compose up --scale web_static=5 --scale web_dynamic=5 --build`  
 Ceci lance 5 instances de chaque serveur. Ne pas utiliser l'option `-d` pour cette étape.
 2. Accéder à l'adresse `demo.api.ch` dans un navigateur. Attention, le fichier `hosts` de l'hôte doit être configuré correctement.
-3. Un script recharge la page régulièrement. On constate que le nom d'hôte ne change pas.
+3. Un script recharge la page régulièrement. On constate que le nom d'hôte ne change pas. Un cookie supplémentaire `session` apparaît. C'est lui qu'utilise Traefik pour rediriger le client vers le bon serveur.
 4. Essayer de se connecter/déconnecter à l'aide des boutons prévus. Au besoin, désactiver le rechargement automatique avec le bouton prévu. Le comportement est cohérent. La session établie avec le serveur est correctement gérée.
 5. Consulter les logs dans la console. On remarque que le reverse proxy distribue toujours au même serveur les requêtes.
 6. Stoper le rechargement automatique.
