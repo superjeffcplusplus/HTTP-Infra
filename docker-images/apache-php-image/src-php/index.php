@@ -125,8 +125,8 @@ $hostname = getenv('HOSTNAME');
   .then((response) => {return response.json()})
   .then((body) => {
     document.querySelector("#webDynInfo").innerHTML = 
-     "<ul><li>Hostname : " + body.serverName + "</li>"
-     + "<li>Hostname : " + body.ipAddress + "</li></ul>";
+     "<ul><li>Hostname   : " + body.serverName + "</li>"
+     + "  <li>IP Address : " + body.ipAddress + "</li></ul>";
   })}
   document.querySelector("#webDyn").addEventListener("click", fetchDyn);
 </script>
