@@ -21,7 +21,7 @@ Le fichier `docker-compose.yml` change pour mettre en place Traefik. Toute la co
 L'application web est différente des étapes précédentes. Un script `php` a été écrit pour montrer le comportement des sessions en cas de mise en oeuvre de multiples instances d'une même application. Pour compléter la démonstration, quelques scripts en JavaScript ont été utiles.
 ## Procédure de test
 Pour que tout fonctionne correctement, il est impératif de se déplacer dans le dossier `docker-images/`.
-1. Lancer la commande :  
+1. Effacer les cookies pour le site `http://demo.api.ch/`. Lancer la commande :  
 `docker-compose up --scale web_static=5 --scale web_dynamic=5 --build`
 Ceci lance 5 instances de chaque serveur. Ne pas utiliser l'option `-d` pour cette étape.
 2. Accéder à l'adresse `demo.api.ch` dans un navigateur. Attention, le fichier `hosts` de l'hôte doit être configuré correctement.
