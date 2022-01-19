@@ -1,4 +1,4 @@
-# HTTP-Infra - 6a. Load balancing avec sticky session
+# HTTP-Infra - 6b. Load balancing avec sticky session
 Dans cette partie, nous implémentons la notion de sticky session. Cela veut dire que le reverse proxy doit reconnaître le client afin de le rediriger vers le serceur quel il s'est déjà connecté.
 
 ## Utilisation de Docker
