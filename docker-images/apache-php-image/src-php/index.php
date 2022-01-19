@@ -72,7 +72,7 @@ $hostname = getenv('HOSTNAME');
     window.location = "/";
   })
 
-  let autoreload = false;
+  let autoreload = true;
 
   document.querySelector("#autoReload").addEventListener("click", (event) => {
     if (autoreload) {
