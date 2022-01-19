@@ -38,5 +38,5 @@ php /etc/apache2/templates/config-template.php > /etc/apache2/sites-available/00
 a2ensite 000-* 001-*;
 ```
 La première ligne permet de générer la configuration à partir d'un template en php. La seconde active la configuration. Dans le template php, nous récupérons simplement les variables d'environnement définies dans le docker-compose.yml. De cette manière, si on change les noms de domaines, un seul fichier sera à midifier.
-## Accès à l'application
+## Procédure
 Par rapport à l'étape précédente, rien ne change.
