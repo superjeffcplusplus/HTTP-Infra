@@ -117,6 +117,9 @@ $hostname = getenv('HOSTNAME');
 </script>
 
 <script>
+  /**
+   * Script pour faire des requête au serveur Node
+   */
   const fetchDyn = () => {
   window.fetch("server-info/")
   .then((response) => {return response.json()})
