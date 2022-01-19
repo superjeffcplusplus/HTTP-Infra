@@ -1,4 +1,5 @@
 #!/bin/bash
+docker kill api-web-static-dev;
 docker container rm api-web-static-dev 2>/dev/null;
 docker build -t api/apache-static-dev . ;
 docker run -d \
