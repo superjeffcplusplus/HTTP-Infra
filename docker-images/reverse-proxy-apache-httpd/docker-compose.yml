@@ -1,20 +1,17 @@
 version: '3.8'
 services:
   reverse_proxy:
-    build: .
+    image: traefik
     container_name: reverse_proxy
+    command: --api.insecure=true --providers.docker
     ports:
-      - "8080:80"
-    environment:
-      - WEB_STATIC_HOSTNAME=web_static
-      - WEB_DYNAMIC_HOSTNAME=web_dynamic
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
   web_static:
     build: ../apache-php-image/
-    container_name: web_static
-    depends_on:
-      - reverse_proxy
-  web_dynamic:
-    build: ../nodejs-image/
-    container_name: web_dynamic
+    labels:
+      - traefik.http.routers.web_static.rule=Host("demo.api.ch")
     depends_on:
       - reverse_proxy
