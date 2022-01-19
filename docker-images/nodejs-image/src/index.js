@@ -1,40 +1,19 @@
-const Chance = require("chance");
-const chance = new Chance();
+const os = require("os");
 
 const express = require("express");
 const app = express();
 
-
-const today = new Date();
-
-let lastRequest = null;
-let bowlsNb;
+app.listen(80, function() {
+    console.log("Waiting for clients on port 80 ");
+})
 
 app.get("/", function(req, res){
+    console.log("Incomming request...");
     let returnedObj = {};
-    returnedObj.date = today.getDate() + "." + (today.getMonth()+1) + "." + today.getFullYear();
 
-    bowlsNb = Math.ceil(Math.random() * 3);
+    returnedObj.serverName = os.hostname();
 
-    returnedObj.iceCreamBowls = [];
-
-    for (let i = 0; i < bowlsNb; ++i){
-        returnedObj.iceCreamBowls.push(iceCreamTruck());
-    }
+    returnedObj.ipAddress = os.networkInterfaces()["eth0"][0].address;
     
-
-    if (lastRequest !== null){
-        returnedObj["time after previous request"] = ((Date.now() - lastRequest)/1000) + " seconds";
-    }
     res.send(returnedObj);
-    lastRequest = Date.now();
 })
-
-app.listen(3000, function() {
-    console.log("Waiting for clients on port 3000 ");
-})
-
-function iceCreamTruck(){
-    var tastes = ["chocolate", "vanilla", "strawberry", "lemon"];
-    return chance.pickone(tastes);
-}
