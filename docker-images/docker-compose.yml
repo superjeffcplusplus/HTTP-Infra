@@ -3,10 +3,11 @@ services:
   reverse_proxy:
     image: traefik
     container_name: reverse_proxy
-    command: --api.insecure=true --providers.docker
+    # Argument supplémentaire utilisé lors du lancement de Traefik
+    # Indique à Traefik qu'il s'exécute dans une environnement docker.
+    command: --providers.docker
     ports:
       - "80:80"
-      - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   web_static:
