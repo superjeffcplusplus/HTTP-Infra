@@ -44,7 +44,13 @@ $hostname = getenv('HOSTNAME');
     </div>
   <?php endif ?>
 
-  <p>Hostname : <?= $hostname ?></p>
+  <h3>Infos sur le serveur :</h3>
+  <p>Hostname web_static : <?= $hostname ?></p>
+
+  <h3>Cookies :</h3>
+  <ul id="cookies" >
+ <!-- Complété par le script -->
+  </ul>
 
   <button id="reload" class="w3-button w3-white">Reload</button>
 
@@ -58,6 +64,19 @@ $hostname = getenv('HOSTNAME');
   document.querySelector("#reload").addEventListener("click", (event) => {
     window.location = "/";
   })
+</script>
+
+<script>
+  /**
+   * Script pour afficher les cookies
+   */
+  let cookies = document.cookie;
+  cookies = cookies.split(";");
+  cookies.forEach(element => {
+    node = document.createElement("li");
+    node.innerHTML = element;
+    document.querySelector("#cookies").appendChild(node);
+  });
 </script>
 
 </html>
