@@ -73,5 +73,5 @@ ProxyPassReverse "/" "http://web_static:80/"
 
 4. Arrêter le container
     ```
-    docker-compose down
+    docker-compose stop
     ```
