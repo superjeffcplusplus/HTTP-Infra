@@ -1,4 +1,5 @@
-# HTTP-Infra - Serveur HTTP statique
+# HTTP-Infra
+## Etape 1 : Serveur HTTP statique
 
 Dans cette étape, nous devions mettre en place un site internet statique, avec une mise en page. Nous avons choisi de mettre en place un serveur Apache exécutant un script `PHP` pour générer une page `HTML` et fournir les feuilles de styles `CSS`, scripts `JavaScript` et images nécessaires au bon affichage de la page WEB.
 ## Utilisation de Docker
