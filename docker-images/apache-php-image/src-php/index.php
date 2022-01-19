@@ -72,24 +72,14 @@ $hostname = getenv('HOSTNAME');
     window.location = "/";
   })
 
-  let autoreload;
-  if (localStorage.getItem("autoreload") == "") {
-    autoreload = true;
-    localStorage.setItem("autoreload", "true")
-  } else {
-    autoreload = localStorage.getItem("autoreload") == "true" ? true : false;
-    const text = autoreload ? "Auto reload ON" : "Auto reload OFF";
-    document.querySelector("#autoReload").innerHTML = text;
-  }
+  let autoreload = true;
 
   document.querySelector("#autoReload").addEventListener("click", (event) => {
     if (autoreload) {
       autoreload = false;
-      localStorage.setItem("autoreload", "false")
       event.target.innerHTML = "Auto reload OFF";
     } else {
       autoreload = true;
-      localStorage.setItem("autoreload", "true")
       event.target.innerHTML = "Auto reload ON";
     }
   })
