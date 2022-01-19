@@ -1,6 +1,6 @@
 # HTTP-Infra
 
-## Étape 2: Dynamic HTTP server with express.js
+## Etape 2: Serveur HTTP dynamique avec express.js
 <br>
 Pour cette étape nous avons créé un serveur qui tourne "node.js". <br>
 Node.js exécute un programme qui simule un camion de glace en ligne. <br>
