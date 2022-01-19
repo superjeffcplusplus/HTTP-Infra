@@ -1,4 +1,5 @@
-# HTTP-Infra - 3. Reverse proxy avec Apache (configuration statique)
+# HTTP-Infra
+## Etape 3 : Reverse proxy avec Apache (configuration statique)
 
 Dans cette partie, nous avons mis en place une infrastructure qui permet de masquer les serveurs qui distribuent le contenus WEB statique derrière un reverse-proxy. Cela permet d'accéder aux deux serveurs avec le même nom d'hôte.
 
@@ -54,10 +55,23 @@ ProxyPassReverse "/" "http://web_static:80/"
 - Cette configuration est problématique, car si l'on fait une modification dans le docker-compose, notamment si on changer les clefs des sercices, alors la configuration apache devra être changée séparémment. Il serait confortable de n'avoir qu'un seul fichier à modifier.
 - A noter qu'en raison de l'utilisation de docker-compose, nous n'avons pas le problème de IP statiques.
 
-## Accès à l'application
-Dans la configuration, on demande à Apache de répondre aux requêtes adressées au nom de domaine `demo.api.ch`. C'est lui qu'il faut taper dans la bare d'adresse du navigateur. Pour que cela fonctionne, il faut ajouter une entrée au fichier `hosts` de la machine avec laquelle on veut accéder à l'application. Sa localisation dépend des systèmes d'exploitation, mais en général il se trouve dans `/etc/hosts`. Ajouter la ligne :
-`127.0.0.1 demo.api.ch`.  
-On peut ensuite accéder à l'application grâce à l'url http://demo.api.ch:8080.
-- http://demo.api.ch:8080/api/icecream/, sans oublier le dernier "/" : Le serveur web_dynamic devrait répondre.
-- http://demo.api.ch : Le serveur web_static devrait répondre.
-- http://web_static:80/ : Le navigateur ne trouve pas le serveur, car il n'est pas directement accessible. Même chose avec http://web_dynamic:80/
+## Procédure
+1. Créer les images et lancer les containers
+    ```
+    docker-compose up -d --build
+    ```
+3. Ajouter le nom de domaine dans le fichier `hosts`<br>
+  Dans la configuration, on demande à Apache de répondre aux requêtes adressées au nom de domaine `demo.api.ch`. C'est lui qu'il faut taper dans la bare d'adresse du navigateur. Pour que cela fonctionne, il faut ajouter une entrée au fichier `hosts` de la machine avec laquelle on veut accéder à l'application. Sa localisation dépend des systèmes d'exploitation, mais en général il se trouve dans `/etc/hosts`.<br>
+  Ajouter la ligne :
+    ```
+    127.0.0.1 demo.api.ch
+    ```
+3. On peut ensuite accéder à l'application grâce à l'url http://demo.api.ch:8080.
+    - http://demo.api.ch:8080/api/icecream/, sans oublier le dernier "/" : Le serveur web_dynamic devrait répondre.
+    - http://demo.api.ch : Le serveur web_static devrait répondre.
+    - http://web_static:80/ : Le navigateur ne trouve pas le serveur, car il n'est pas directement accessible. Même chose avec http://web_dynamic:80/
+
+4. Arrêter le container
+    ```
+    docker-compose down
+    ```
