@@ -26,7 +26,7 @@ $hostname = getenv('HOSTNAME');
 </head>
 
 <body>
-  <h1>Load balancing sans sticky session</h1>
+  <h1>Load balancing avec sticky session</h1>
 
   <?php if (isset($_SESSION['user'])) : ?>
     <div class="w3-container w3-white">
