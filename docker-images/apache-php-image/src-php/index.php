@@ -26,7 +26,7 @@ $hostname = getenv('HOSTNAME');
 </head>
 
 <body>
-  <h1>Load balancing without sticky session</h1>
+  <h1>Load balancing sans sticky session</h1>
 
   <?php if (isset($_SESSION['user'])) : ?>
     <div class="w3-container w3-white">
@@ -44,9 +44,18 @@ $hostname = getenv('HOSTNAME');
     </div>
   <?php endif ?>
 
-  <p>Hostname : <?= $hostname ?></p>
+  <h3>Infos sur le serveur :</h3>
+  <p>Hostname web_static : <?= $hostname ?></p>
+
+  <h3>Cookies :</h3>
+  <ul id="cookies" >
+ <!-- Complété par le script -->
+  </ul>
 
   <button id="reload" class="w3-button w3-white">Reload</button>
+
+  <button id="autoReload" class="w3-button w3-white">Auto reload ON</button>
+
 
 
 </body>
@@ -58,6 +67,49 @@ $hostname = getenv('HOSTNAME');
   document.querySelector("#reload").addEventListener("click", (event) => {
     window.location = "/";
   })
+
+  let autoreload;
+  if (localStorage.getItem("autoreload") == "") {
+    autoreload = true;
+    localStorage.setItem("autoreload", "true")
+  } else {
+    autoreload = localStorage.getItem("autoreload") == "true" ? true : false;
+    const text = autoreload ? "Auto reload ON" : "Auto reload OFF";
+    document.querySelector("#autoReload").innerHTML = text;
+  }
+
+  document.querySelector("#autoReload").addEventListener("click", (event) => {
+    if (autoreload) {
+      autoreload = false;
+      localStorage.setItem("autoreload", "false")
+      event.target.innerHTML = "Auto reload OFF";
+    } else {
+      autoreload = true;
+      localStorage.setItem("autoreload", "true")
+      event.target.innerHTML = "Auto reload ON";
+    }
+  })
+
+  // recharge la page à intervale régulier
+  window.setInterval(() => {
+    if (autoreload) {
+      window.location = "/"
+    }
+  }, 3000);
+
+</script>
+
+<script>
+  /**
+   * Script pour afficher les cookies
+   */
+  let cookies = document.cookie;
+  cookies = cookies.split(";");
+  cookies.forEach(element => {
+    node = document.createElement("li");
+    node.innerHTML = element;
+    document.querySelector("#cookies").appendChild(node);
+  });  
 </script>
 
 </html>
