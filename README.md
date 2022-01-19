@@ -23,7 +23,7 @@ La branche est structuée ainsi: <br>
 
 - `nodejs-image` : n'a pas changé depuis l'étape précédente 
 - `reverse-proxy-apache-httpd` :  n'a pas changé depuis l'étape précédente 
-    <br><br>
+
 - `docker-compose.yml` : fichier docker-compose permettant de gérer les différentes images docker
     <br>(la logique reste la même que à l'[étape 3](https://github.com/superjeffcplusplus/HTTP-Infra/blob/fb-apache-reverse-proxy/README.md))
 
