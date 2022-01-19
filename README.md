@@ -14,6 +14,8 @@ Une branche `git` différencie chaque étape.
 | Reverse proxy          | fb-apache-reverse-proxy |
 | Requêtes Ajax          |fb-ajax-jquery|
 | Reverse proxy avec configuration dynamique | fb-dynamic-configuration
+| Load balancing partie 1 | fb-load-balancing-step1 
+| Load balancing partie 2 | fb-load-balancing-step2
 
 Pour passer d'une étape de réalisation à l'autre, exécuter la commande `git checkou <nom branche>` depuis le dossier de base du projet.
 
