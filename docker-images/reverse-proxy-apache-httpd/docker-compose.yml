@@ -13,5 +13,6 @@ services:
     build: ../apache-php-image/
     labels:
       - traefik.http.routers.web_static.rule=Host("demo.api.ch")
+      - traefik.http.services.web-static.loadbalancer.sticky.cookie.name=session
     depends_on:
       - reverse_proxy
