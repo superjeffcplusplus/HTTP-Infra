@@ -26,4 +26,4 @@ Dans chaque branche, on trouvera un fichier readme.md qui explique comment faire
 
 - Docker doit être installé et lancé pour faire fonctionner chaque étape.
 Pour l'installation, suivre le lien https://www.docker.com/get-started.
-- En outre, à partir de l'étape 5, docker-compose est requis. Pour l'installation, suivre le lien https://docs.docker.com/compose/install/.
+- En outre, à partir de l'étape 3, docker-compose est requis. Pour l'installation, suivre le lien https://docs.docker.com/compose/install/.
