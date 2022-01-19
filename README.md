@@ -7,7 +7,8 @@ Pour cette partie, l'utilisation de `docker-compose` est incontournable.
 
 ### Commandes
 - L'option --scale nomService=nbInstances permet de lancer des containers à la volée.
-    - Exemple : `docker-compose up --scale web_static=5 --scale web_dynamic=5 --build`
+    - Exemple :  
+    `docker-compose up --scale web_static=5 --scale web_dynamic=5 --build`
     
 ### docker-compose.yml
 Le fichier `docker-compose.yml` change pour mettre en place Traefik. Toute la configuration du reverse proxy s'y trouve. La clef `label` permet de définir les variables dont il a besoin pour rediriger les requêtes vers le bon container.
@@ -22,7 +23,7 @@ L'application web est différente des étapes précédentes. Un script `php` a �
 ## Procédure de test
 Pour que tout fonctionne correctement, il est impératif de se déplacer dans le dossier `docker-images/`.
 1. Effacer les cookies pour le site `http://demo.api.ch/`. Lancer la commande :  
-`docker-compose up --scale web_static=5 --scale web_dynamic=5 --build`
+`docker-compose up --scale web_static=5 --scale web_dynamic=5 --build`  
 Ceci lance 5 instances de chaque serveur. Ne pas utiliser l'option `-d` pour cette étape.
 2. Accéder à l'adresse `demo.api.ch` dans un navigateur. Attention, le fichier `hosts` de l'hôte doit être configuré correctement.
 3. Un script recharge la page régulièrement. On constate que le nom d'hôte du serveur change à chaque rechargement. 
