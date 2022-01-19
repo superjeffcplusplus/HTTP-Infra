@@ -10,7 +10,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   web_static:
-    build: ../apache-php-image/
+    build: apache-php-image/
     expose:
       - 80
     labels:
@@ -21,7 +21,7 @@ services:
     depends_on:
       - reverse_proxy
   web_dynamic:
-    build: ../nodejs-image/
+    build: nodejs-image/
     expose:
       - 80
     labels:
