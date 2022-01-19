@@ -26,7 +26,7 @@ $hostname = getenv('HOSTNAME');
 </head>
 
 <body>
-  <h1>Load balancing avec sticky session</h1>
+  <h1>Load balancing sans sticky session</h1>
 
   <?php if (isset($_SESSION['user'])) : ?>
     <div class="w3-container w3-white">
@@ -44,8 +44,11 @@ $hostname = getenv('HOSTNAME');
     </div>
   <?php endif ?>
 
-  <h3>Infos sur le serveur :</h3>
-  <p>Hostname web_static : <?= $hostname ?></p>
+  <h3>Infos sur le serveur statique:</h3>
+  <p>Hostname : <?= $hostname ?></p>
+
+  <h3>Infos sur le serveur dynamique :</h3>
+  <ul id="webDynInfo"></ul>
 
   <h3>Cookies :</h3>
   <ul id="cookies" >
@@ -56,6 +59,7 @@ $hostname = getenv('HOSTNAME');
 
   <button id="autoReload" class="w3-button w3-white">Auto reload ON</button>
 
+  <button id="webDyn" class="w3-button w3-white">Fetch web_dynamic</button>
 
 
 </body>
@@ -95,7 +99,7 @@ $hostname = getenv('HOSTNAME');
     if (autoreload) {
       window.location = "/"
     }
-  }, 3000);
+  }, 2000);
 
 </script>
 
@@ -110,6 +114,21 @@ $hostname = getenv('HOSTNAME');
     node.innerHTML = element;
     document.querySelector("#cookies").appendChild(node);
   });  
+</script>
+
+<script>
+  /**
+   * Script pour faire des requête au serveur Node
+   */
+  const fetchDyn = () => {
+  window.fetch("server-info/")
+  .then((response) => {return response.json()})
+  .then((body) => {
+    document.querySelector("#webDynInfo").innerHTML = 
+     "<ul><li>Hostname : " + body.serverName + "</li>"
+     + "<li>Hostname : " + body.ipAddress + "</li></ul>";
+  })}
+  document.querySelector("#webDyn").addEventListener("click", fetchDyn);
 </script>
 
 </html>
