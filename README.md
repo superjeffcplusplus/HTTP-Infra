@@ -17,7 +17,7 @@ Une branche `git` différencie chaque étape.
 | Load balancing partie 1 | fb-load-balancing-step1 
 | Load balancing partie 2 | fb-load-balancing-step2
 
-Pour passer d'une étape de réalisation à l'autre, exécuter la commande `git checkou <nom branche>` depuis le dossier de base du projet.
+Pour passer d'une étape de réalisation à l'autre, exécuter la commande `git checkout <nom branche>` depuis le dossier de base du projet.
 
 Dans chaque branche, on trouvera un fichier readme.md qui explique comment faire fonctionner l'application et qui répond aux questions posées dans la consigne.
 
