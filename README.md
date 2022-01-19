@@ -9,13 +9,14 @@ Une branche `git` différencie chaque étape.
 
 | Etape                  | Branche |
 | ---------------------- | ------- |
-| Serveur HTTP statique  | fb-apache-static |
-| Serveur HTTP dynamique | fb-express-dynamic |
-| Reverse proxy          | fb-apache-reverse-proxy |
-| Requêtes Ajax          |fb-ajax-jquery|
-| Reverse proxy avec configuration dynamique | fb-dynamic-configuration
-| Load balancing partie 1 | fb-load-balancing-step1 
-| Load balancing partie 2 | fb-load-balancing-step2
+| Serveur HTTP statique  | [fb-apache-static](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-apache-static) |
+| Serveur HTTP dynamique | [fb-express-dynamic](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-express-dynamic) |
+| Reverse proxy          | [fb-apache-reverse-proxy](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-apache-reverse-proxy) |
+| Requêtes Ajax          |[fb-ajax-jquery](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-ajax-jquery)|
+| Reverse proxy avec configuration dynamique | [fb-dynamic-configuration](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-dynamic-configuration) |
+| Load balancing partie 1 | [fb-load-balancing-step1](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-load-balancing-step1) |
+| Load balancing partie 2 | [fb-load-balancing-step2](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-load-balancing-step2) |
+| Load balancing partie 2 | [fb-load-balancing-step3](https://github.com/superjeffcplusplus/HTTP-Infra/tree/fb-load-balancing-step3) |
 
 Pour passer d'une étape de réalisation à l'autre, exécuter la commande `git checkout <nom branche>` depuis le dossier de base du projet.
 
