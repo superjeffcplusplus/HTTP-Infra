@@ -54,6 +54,9 @@ $hostname = getenv('HOSTNAME');
 
   <button id="reload" class="w3-button w3-white">Reload</button>
 
+  <button id="autoReload" class="w3-button w3-white">Auto reload ON</button>
+
+
 
 </body>
 
@@ -64,6 +67,36 @@ $hostname = getenv('HOSTNAME');
   document.querySelector("#reload").addEventListener("click", (event) => {
     window.location = "/";
   })
+
+  let autoreload;
+  if (localStorage.getItem("autoreload") == "") {
+    autoreload = true;
+    localStorage.setItem("autoreload", "true")
+  } else {
+    autoreload = localStorage.getItem("autoreload") == "true" ? true : false;
+    const text = autoreload ? "Auto reload ON" : "Auto reload OFF";
+    document.querySelector("#autoReload").innerHTML = text;
+  }
+
+  document.querySelector("#autoReload").addEventListener("click", (event) => {
+    if (autoreload) {
+      autoreload = false;
+      localStorage.setItem("autoreload", "false")
+      event.target.innerHTML = "Auto reload OFF";
+    } else {
+      autoreload = true;
+      localStorage.setItem("autoreload", "true")
+      event.target.innerHTML = "Auto reload ON";
+    }
+  })
+
+  // recharge la page à intervale régulier
+  window.setInterval(() => {
+    if (autoreload) {
+      window.location = "/"
+    }
+  }, 3000);
+
 </script>
 
 <script>
@@ -76,10 +109,7 @@ $hostname = getenv('HOSTNAME');
     node = document.createElement("li");
     node.innerHTML = element;
     document.querySelector("#cookies").appendChild(node);
-  });
-
-  //document.fetch("/url").then((response) => {response.text()}).then((text) => {/**faire quelque chose */})
-  
+  });  
 </script>
 
 </html>
