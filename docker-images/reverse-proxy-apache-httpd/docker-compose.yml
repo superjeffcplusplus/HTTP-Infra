@@ -8,10 +8,14 @@ services:
   web_static:
     build: ../apache-php-image/
     container_name: web_static
+    expose:
+      - 80
     depends_on:
       - reverse_proxy
   web_dynamic:
     build: ../nodejs-image/
     container_name: web_dynamic
+    expose:
+      - 3000
     depends_on:
       - reverse_proxy
