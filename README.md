@@ -19,7 +19,13 @@ Le fichier `docker-compose.yml` change pour mettre en place Traefik. Toute la co
 
 ## Application
 
-L'application web est différente des étapes précédentes. Un script `php` a été écrit pour montrer le comportement des sessions en cas de mise en oeuvre de multiples instances d'une même application. Pour compléter la démonstration, quelques scripts en JavaScript ont été utiles.
+L'application web est différente des étapes précédentes. Un script `php` a été écrit pour montrer le comportement des sessions en cas de mise en oeuvre de multiples instances d'une même application. Pour compléter la démonstration, quelques scripts en JavaScript ont été utiles pour modifier dynamiquement l'affichage. Un autre script permet de faire des requêtes Ajax vers le serveur NodeJs.
+
+### Boutons :
+- Connecter / Déconnecter : établir une session / supprimer une session avec le serveur PHP.
+- Reload : recharge manuellement la page.
+- Auto reload ON / OFF : active et désactive le rechargement automatique.
+- Fetch web dynamic : exécute une requête Ajax vers le serveur NodeJS.
 ## Procédure de test
 Pour que tout fonctionne correctement, il est impératif de se déplacer dans le dossier `docker-images/`.
 1. Effacer les cookies pour le site `http://demo.api.ch/`. Lancer la commande :  
