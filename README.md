@@ -68,7 +68,7 @@ ProxyPassReverse "/" "http://web_static:80/"
     ```
 3. On peut ensuite accéder à l'application grâce à l'url http://demo.api.ch:8080.
     - http://demo.api.ch:8080/api/icecream/, sans oublier le dernier "/" : Le serveur web_dynamic devrait répondre.
-    - http://demo.api.ch : Le serveur web_static devrait répondre.
+    - http://demo.api.ch:8080 : Le serveur web_static devrait répondre.
     - http://web_static:80/ : Le navigateur ne trouve pas le serveur, car il n'est pas directement accessible. Même chose avec http://web_dynamic:80/
 
 4. Arrêter le container
